@@ -1,0 +1,18 @@
+## IDEA
+/.idea/
+
+## GOLANG
+/vendor/
+vendor.tar.gz
+gin-bin
+.http-server.yml
+
+# GoReleaser
+dist
+
+## Project
+.tmp/
+*.zip
+*.exe
+cert.pem
+key.pem
