@@ -1,5 +1,7 @@
 module github.com/dohr-michael/http-server
 
+go 1.14
+
 require (
 	github.com/go-chi/chi v4.0.2+incompatible
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect

@@ -55,8 +55,8 @@ func Run(dirToServe string, addr string, tlsAddr string, certFile string, keyFil
 	mux.Get("/config.js", configHandler.ServeHTTP)
 	// Admin
 
-	mux.Get("/@/health", http.HandlerFunc(health))
-	mux.Get("/@/info", http.HandlerFunc(info(env)))
+	mux.Get("/@/health", health)
+	mux.Get("/@/info", info(env))
 
 	if err := buildFolderListener(mux, env, dirToServe); err != nil {
 		return err
@@ -125,6 +125,9 @@ func buildFolderListener(mux *chi.Mux, env *envContext, folder string) error {
 			}
 			if httpPath == "/index.html" {
 				rootFile = h
+			} else if strings.HasSuffix(httpPath, "index.html") {
+				mux.Handle(strings.TrimSuffix(httpPath, "index.html"), h)
+				mux.Handle(strings.TrimSuffix(httpPath, "/index.html"), h)
 			}
 			mux.Handle(httpPath, h)
 		}
