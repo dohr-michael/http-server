@@ -1,8 +1,6 @@
 http-server
 ===========
 
-[![Build Status](https://dev.azure.com/dohrmichael/commons/_apis/build/status/dohr-michael.http-server?branchName=master)](https://dev.azure.com/dohrmichael/commons/_build/latest?definitionId=2&branchName=master)
-
 - Commands (from Magefile)
     - Run unit test : `mage test` 
     - Build locally : `mage build` 
